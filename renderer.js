@@ -37,3 +37,8 @@ document.addEventListener('keyup', e => {
     window.close()
   }
 })
+
+document.addEventListener('click', e => {
+  e.preventDefault()
+  window.close()
+})
