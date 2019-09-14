@@ -24,6 +24,8 @@ function createWindows() {
       alwaysOnTop: false,
       fullscreen: true,
       useContentSize: true,
+      titleBarStyle: 'hiddenInset',
+      frame: false,
     })
 
     mainWindow.loadFile('index.html')
@@ -31,9 +33,6 @@ function createWindows() {
       // Close one window, close everything.
       electron.app.quit()
     })
-    // mainWindow.maximize()
-    // mainWindow.show()
-    // mainWindow.maximize()
     windows.push(mainWindow)
   })
 }
