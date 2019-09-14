@@ -10,7 +10,6 @@ body {
   overflow: hidden;
   text-shadow: 0 0 10px #ff8800;
   cursor: url(cursor.png), auto;
-
 }
 
 ::selection {
@@ -22,7 +21,7 @@ body {
 }
 
 body:hover {
-  filter: brightness(200%);
+  filter: brightness(120%);
 }
 
 pre.console {
@@ -39,18 +38,26 @@ pre {
   filter: blur(1px);
   font-weight: bold;
   text-align: center;
+  z-index: 1;
 }
 
 pre:after {
-  content: "";
+  content: "Property of The Computing Assosication © 1983";
+  font-size: 0.7rem;
+  color: #fff;
+  font-weight: normal;
+  display: block;
+  text-align: left;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 5px;
+  left: 5px;
+  width: 100vw;
+  height: 100vh;
   background-image: url('scanline.png');
+  background-repeat: repeat;
   z-index: 100;
   pointer-events: none;
+  filter: none;
 }
 
 body.clicked pre {
