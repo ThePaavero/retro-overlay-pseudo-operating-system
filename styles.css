@@ -10,6 +10,7 @@ body {
   /*text-shadow: 2px 2px #ff0000;*/
   overflow: hidden;
   text-shadow: 0 0 10px #ff8800;
+  cursor: url(cursor.png), auto;
 }
 
 pre.console {

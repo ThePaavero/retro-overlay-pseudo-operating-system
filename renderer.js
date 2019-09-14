@@ -29,3 +29,11 @@ const tick = () => {
 }
 
 tick()
+
+// ---------
+
+document.addEventListener('keyup', e => {
+  if (e.key === 'Escape') {
+    window.close()
+  }
+})
