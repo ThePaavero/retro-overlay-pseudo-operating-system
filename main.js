@@ -9,11 +9,12 @@ const windows = []
 
 function createWindows() {
   const allScreens = electron.screen.getAllDisplays()
+  let screenNumber = 1
   allScreens.forEach(screen => {
     console.log(screen)
     const mainWindow = new electron.BrowserWindow({
       width: screen.size.width,
-      height: screen.size.height + 50,
+      height: screen.size.height,
       x: screen.bounds.x,
       y: screen.bounds.y,
       webPreferences: {
@@ -21,17 +22,18 @@ function createWindows() {
       },
       movable: false,
       resizable: false,
-      alwaysOnTop: true,
+      alwaysOnTop: false,
       titleBarStyle: 'hiddenInset',
       frame: false,
     })
 
-    mainWindow.loadFile('index.html')
+    mainWindow.loadFile('./screens/' + screenNumber + '.html')
     mainWindow.on('closed', () => {
       // Close one window, close everything.
       electron.app.quit()
     })
     windows.push(mainWindow)
+    screenNumber++
   })
 }
 
