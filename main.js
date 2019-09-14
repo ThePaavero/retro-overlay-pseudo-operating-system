@@ -1,5 +1,4 @@
 const electron = require('electron')
-const _ = require('lodash')
 
 require('electron-reload')(__dirname, {
   electron: require(`${__dirname}/node_modules/electron`)
@@ -7,15 +6,6 @@ require('electron-reload')(__dirname, {
 const path = require('path')
 
 const windows = []
-
-function closeAll() {
-  console.log('Closing all!')
-  windows.forEach(window => {
-    if (window) {
-      window.close()
-    }
-  })
-}
 
 function createWindows() {
   let mainWindow
@@ -29,11 +19,15 @@ function createWindows() {
       y: screen.workArea.y,
       webPreferences: {
         preload: path.join(__dirname, 'preload.js')
-      }
+      },
+      movable: false,
+      resizable: false,
+      alwaysOnTop: true,
+      fullscreen: true,
     })
     mainWindow.loadFile('index.html')
     mainWindow.on('closed', () => {
-      // closeAll()
+      electron.app.quit()
     })
     mainWindow.maximize()
     windows.push(mainWindow)
