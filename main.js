@@ -13,7 +13,7 @@ function createWindows() {
     console.log(screen)
     const mainWindow = new electron.BrowserWindow({
       width: screen.size.width,
-      height: screen.size.height,
+      height: screen.size.height + 50,
       x: screen.bounds.x,
       y: screen.bounds.y,
       webPreferences: {
@@ -21,9 +21,7 @@ function createWindows() {
       },
       movable: false,
       resizable: false,
-      alwaysOnTop: false,
-      fullscreen: true,
-      useContentSize: true,
+      alwaysOnTop: true,
       titleBarStyle: 'hiddenInset',
       frame: false,
     })
