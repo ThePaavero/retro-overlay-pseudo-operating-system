@@ -40,5 +40,9 @@ document.addEventListener('keyup', e => {
 
 document.addEventListener('click', e => {
   e.preventDefault()
-  window.close()
+  // window.close()
+  document.body.classList.add('clicked')
+  setTimeout(() => {
+    document.body.classList.remove('clicked')
+  }, randomBetween(20, 60))
 })
