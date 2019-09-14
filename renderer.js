@@ -15,19 +15,17 @@ let ticks = 0
 
 const tick = () => {
   ticks++
-  
-  if (ticks > 10) {
+
+  if (ticks > 30) {
     return
   }
-  
-  console.log('tick')
 
-  element.style.opacity = 0.4
+  element.style.opacity = randomBetween(0, 0.7)
   setTimeout(() => {
     element.style.opacity = 1
   }, randomBetween(10, 200))
-  
-  setTimeout(tick, randomBetween(100, 2000))
+
+  setTimeout(tick, randomBetween(10, 50))
 }
 
 tick()

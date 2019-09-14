@@ -11,7 +11,6 @@ function createWindows() {
   const allScreens = electron.screen.getAllDisplays()
   let screenNumber = 1
   allScreens.forEach(screen => {
-    console.log(screen)
     const mainWindow = new electron.BrowserWindow({
       width: screen.size.width,
       height: screen.size.height,
