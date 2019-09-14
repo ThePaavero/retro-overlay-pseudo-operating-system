@@ -20,16 +20,20 @@ function createWindows() {
       webPreferences: {
         preload: path.join(__dirname, 'preload.js')
       },
+      // show: false,
       movable: false,
       resizable: false,
-      alwaysOnTop: true,
+      alwaysOnTop: false,
       fullscreen: true,
     })
+
     mainWindow.loadFile('index.html')
     mainWindow.on('closed', () => {
       electron.app.quit()
     })
-    mainWindow.maximize()
+    // mainWindow.maximize()
+    // mainWindow.show()
+    // mainWindow.maximize()
     windows.push(mainWindow)
   })
 }
