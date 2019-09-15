@@ -1,10 +1,6 @@
 document.body.requestFullscreen()
 
-function randomBetween(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min)
-}
-
-function genRand(min, max, decimalPlaces = 10) {
+function randomBetween(min, max, decimalPlaces = 10) {
   var rand = Math.random() < 0.5 ? ((1 - Math.random()) * (max - min) + min) : (Math.random() * (max - min) + min)
   var power = Math.pow(10, decimalPlaces)
   return Math.floor(rand * power) / power
@@ -24,16 +20,16 @@ const tick = (slight) => {
     return
   }
 
-  const minOpacity = slight ? genRand(0.8, 1) : genRand(0, 1)
+  const minOpacity = slight ? randomBetween(0.8, 1) : randomBetween(0, 1)
 
-  element.style.opacity = genRand(minOpacity, 1)
+  element.style.opacity = randomBetween(minOpacity, 1)
   setTimeout(() => {
     element.style.opacity = 1
-  }, genRand(7, 10))
+  }, randomBetween(7, 10))
 
   setTimeout(() => {
     tick(slight)
-  }, genRand(10, 50))
+  }, randomBetween(10, 50))
 }
 
 tick()
