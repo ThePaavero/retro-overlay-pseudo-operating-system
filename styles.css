@@ -10,9 +10,11 @@ html {
 body {
   /*font-family: "Courier New", sans-serif;*/
   font-family: "some";
+  min-width: 100vw;
+  min-height: 100vh;
   color: #ff8800;
   padding: 100px;
-  font-size: 1.7vw;
+  font-size: 1.2vw;
   overflow: hidden;
   text-shadow: 0 0 10px #ff8800;
   cursor: url(cursor.png), auto;
@@ -34,19 +36,7 @@ pre.console {
   text-align: left;
 }
 
-pre {
-  position: fixed;
-  top: 100px;
-  left: 100px;
-  width: 100%;
-  height: 100%;
-  filter: blur(1px);
-  font-weight: bold;
-  text-align: center;
-  z-index: 1;
-}
-
-pre:before {
+.scanlines {
   content: "Property of The Computing Assosication © 1983 -- ALL ACTIVIES ARE LOGGED AND INSPECTED DAILY. Have a productive day.";
   font-weight: normal;
   display: block;
@@ -56,13 +46,25 @@ pre:before {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-image: url('./scanline.png');
+  color: #fff;
+  background-image: url('scanline.png');
   background-repeat: repeat;
   font-size: 0.7rem;
   z-index: 100;
   pointer-events: none;
 }
 
+pre {
+  position: fixed;
+  top: 100px;
+  width: 100vw;
+  min-height: 100vh;
+  filter: blur(1px);
+  font-weight: bold;
+  text-align: center;
+  z-index: 1;
+}
+
 body.clicked pre {
-  filter: brightness(200%);
+  filter: brightness(80%);
 }
