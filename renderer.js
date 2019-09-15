@@ -12,20 +12,26 @@ function randomBetween(min, max) {
 const element = document.querySelector('pre')
 
 let ticks = 0
+let tickLimit = 30
+let initialStrongerStrobingDone = false
 
 const tick = () => {
   ticks++
 
-  if (ticks > 30) {
+  if (ticks > tickLimit) {
+    ticks = 0
+    setTimeout(tick, randomBetween(1000, 5000))
     return
   }
 
-  element.style.opacity = randomBetween(0, 0.7)
+  element.style.opacity = randomBetween(randomBetween(0.4, 0.7), 1)
   setTimeout(() => {
     element.style.opacity = 1
   }, randomBetween(10, 200))
 
   setTimeout(tick, randomBetween(10, 50))
+  initialStrongerStrobingDone = true
+
 }
 
 tick()
