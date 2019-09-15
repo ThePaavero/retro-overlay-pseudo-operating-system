@@ -18,14 +18,17 @@ body {
   overflow: hidden;
   text-shadow: 0 0 10px #ff8800;
   cursor: url(cursor.png), auto;
+  background-image: radial-gradient(
+    rgba(50, 61, 43, 0.5), black 120%
+  );
 }
 
 ::selection {
-  background: transparent;
+  background: #ff8800;
 }
 
 ::-moz-selection {
-  background: transparent;
+  background: #ff8800;
 }
 
 body:hover {
