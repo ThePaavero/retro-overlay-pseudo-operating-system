@@ -40,24 +40,23 @@ pre {
   left: 100px;
   width: 100%;
   height: 100%;
-  background-image: url('scanline.png');
   filter: blur(1px);
   font-weight: bold;
   text-align: center;
   z-index: 1;
 }
 
-pre:after {
+pre:before {
   content: "Property of The Computing Assosication © 1983 -- ALL ACTIVIES ARE LOGGED AND INSPECTED DAILY. Have a productive day.";
   font-weight: normal;
   display: block;
   text-align: left;
   position: fixed;
-  top: -80px;
-  left: -80px;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
-  background-image: url('scanline.png');
+  background-image: url('./scanline.png');
   background-repeat: repeat;
   font-size: 0.7rem;
   z-index: 100;
