@@ -24,10 +24,12 @@ const tick = () => {
     return
   }
 
-  element.style.opacity = randomBetween(randomBetween(0.4, 0.7), 1)
+  const minOpacity = initialStrongerStrobingDone ? randomBetween(0, 0.3) : randomBetween(0.95, 1)
+
+  element.style.opacity = randomBetween(minOpacity, 1)
   setTimeout(() => {
     element.style.opacity = 1
-  }, randomBetween(10, 200))
+  }, randomBetween(10, 800))
 
   setTimeout(tick, randomBetween(10, 50))
   initialStrongerStrobingDone = true
