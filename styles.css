@@ -1,9 +1,15 @@
+@font-face {
+  font-family: "some";
+  src: url("fonts/BigBlue_Terminal_437TT.TTF");
+}
+
 html {
   background-color: #000;
 }
 
 body {
-  font-family: "Courier New", sans-serif;
+  /*font-family: "Courier New", sans-serif;*/
+  font-family: "some";
   color: #ff8800;
   padding: 100px;
   font-size: 1.7vw;
