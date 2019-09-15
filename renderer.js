@@ -1,39 +1,39 @@
-// This file is required by the index.html file and will
-// be executed in the renderer process for that window.
-// All of the Node.js APIs are available in this process.
-
 document.body.requestFullscreen()
 
-// Flicker in.
 function randomBetween(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min)
+}
+
+function genRand(min, max, decimalPlaces = 10) {
+  var rand = Math.random() < 0.5 ? ((1 - Math.random()) * (max - min) + min) : (Math.random() * (max - min) + min)
+  var power = Math.pow(10, decimalPlaces)
+  return Math.floor(rand * power) / power
 }
 
 const element = document.querySelector('pre')
 
 let ticks = 0
 let tickLimit = 30
-let initialStrongerStrobingDone = false
 
-const tick = () => {
+const tick = (slight) => {
   ticks++
 
   if (ticks > tickLimit) {
-    ticks = 0
-    setTimeout(tick, randomBetween(1000, 5000))
+    ticks = 5
+    tick(true)
     return
   }
 
-  const minOpacity = initialStrongerStrobingDone ? randomBetween(0, 0.3) : randomBetween(0.95, 1)
+  const minOpacity = slight ? genRand(0.8, 1) : genRand(0, 1)
 
-  element.style.opacity = randomBetween(minOpacity, 1)
+  element.style.opacity = genRand(minOpacity, 1)
   setTimeout(() => {
     element.style.opacity = 1
-  }, randomBetween(10, 800))
+  }, genRand(7, 10))
 
-  setTimeout(tick, randomBetween(10, 50))
-  initialStrongerStrobingDone = true
-
+  setTimeout(() => {
+    tick(slight)
+  }, genRand(10, 50))
 }
 
 tick()
