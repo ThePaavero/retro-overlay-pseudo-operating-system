@@ -23,10 +23,14 @@ function createWindows() {
       resizable: false,
       alwaysOnTop: false,
       titleBarStyle: 'hiddenInset',
+      fullscreen: true,
       frame: false,
     })
 
     mainWindow.loadFile('./screens/' + screenNumber + '.html')
+    setTimeout(() => {
+      mainWindow.maximize()
+    }, 100)
     mainWindow.on('closed', () => {
       // Close one window, close everything.
       electron.app.quit()
